@@ -1,0 +1,10 @@
+{
+	"extends": "./node_modules/@madhava-yallanki/ts-tools/dist/lib/tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "dist",
+		"allowSyntheticDefaultImports": true
+	},
+	"include": [
+		"src/**/*"
+	]
+}

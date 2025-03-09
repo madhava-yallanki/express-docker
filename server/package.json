@@ -1,0 +1,51 @@
+{
+  "name": "@madhava-yallanki/express-docker-server",
+  "version": "1.0.0",
+  "author": {
+    "name": "Madhava Yallanki"
+  },
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120
+  },
+  "scripts": {
+    "clean": "rm -rf dist package node_modules package-lock.json",
+    "serve": "tsx watch src/index.ts",
+    "prepack": "node node_modules/@madhava-yallanki/ts-tools/dist/lib/scripts/prepack.js",
+    "postpack": "tar -xf madhava-yallanki-express-docker-server-1.0.0.tgz --directory .",
+    "build": "npm dedupe && eslint src --fix && tsc",
+    "release": "npm run build && rm -rf *express-docker-server-*.tgz && npm pack"
+  },
+  "devDependencies": {
+    "@madhava-yallanki/ts-tools": "^1.0.5",
+    "@types/aws-lambda": "^8.10.147",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "@types/ws": "^8.18.0",
+    "type-fest": "^4.37.0",
+    "typescript": "^5.7.3"
+  },
+  "files": [
+    "dist/src/**/*"
+  ],
+  "dependencies": {
+    "@google/generative-ai": "^0.22.0",
+    "@madhava-yallanki/dynamo-mapper": "^1.0.2",
+    "express": "^4.21.2",
+    "pino": "^9.6.0",
+    "ws": "^8.18.1"
+  },
+  "bundleDependencies": [
+    "@google/generative-ai",
+    "@madhava-yallanki/dynamo-mapper",
+    "express",
+    "pino"
+  ]
+}

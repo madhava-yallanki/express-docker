@@ -1,0 +1,18 @@
+{
+  "extends": "./node_modules/@madhava-yallanki/ts-tools/dist/lib/tsconfig.base.json",
+  "compilerOptions": {
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": [
+      "vite/client"
+    ]
+  },
+  "include": [
+    "src"
+  ]
+}

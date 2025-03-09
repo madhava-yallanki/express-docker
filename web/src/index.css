@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/forms';
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui" {
+    themes: garden --default;
+}
+
+@theme {
+    --font-sans: Nunito, sans-serif
+}

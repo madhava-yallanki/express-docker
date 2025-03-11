@@ -1,21 +1,13 @@
 import express, { Request, Response } from 'express';
 import { WebSocketServer } from 'ws';
 import { createServer } from 'http';
+import 'dotenv/config';
+
+import { RoomConnection } from './rooms/connection.js';
 
 const app = express();
 const server = createServer(app as never);
 const wss = new WebSocketServer({ server });
-
-type SurveyItem = {
-  sequence: number;
-  question: string;
-  answer?: string;
-};
-
-type Payload = {
-  sessionId: string;
-  answer?: string;
-};
 
 wss.on('connection', (ws) => {
   console.log('Websocket connected');
@@ -25,10 +17,8 @@ wss.on('connection', (ws) => {
   });
 
   ws.on('message', (data) => {
-    const payload = JSON.parse(data as never) as Payload;
-    console.log('Received', { payload });
-
-    ws.send(JSON.stringify({ question: 'Hello' }));
+    console.log('Received', { data });
+    ws.send(JSON.stringify({ hello: 'world' }));
   });
 
   ws.on('close', () => {
@@ -36,8 +26,10 @@ wss.on('connection', (ws) => {
   });
 });
 
-app.get('/', (_req: Request, res: Response) => {
-  res.send('Hello from Express in Docker');
+app.get('/room/connection', async (_req: Request, res: Response) => {
+  const connection = await new RoomConnection({ userId: 'user-123' }).build();
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.send(connection);
 });
 
 server.listen(8080, () => {

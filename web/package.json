@@ -35,8 +35,12 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "dependencies": {
+    "@livekit/components-react": "^2.8.1",
+    "@livekit/components-styles": "^1.1.4",
+    "@livekit/krisp-noise-filter": "^0.2.16",
     "@reduxjs/toolkit": "^2.5.1",
     "immutability-helper": "^3.1.1",
+    "livekit-client": "^2.9.5",
     "lucide-react": "^0.475.0",
     "nanoid": "^5.1.2",
     "react": "^19.0.0",

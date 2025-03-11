@@ -1,0 +1,23 @@
+[project]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = [{ name = "Madhava Yallanki", email = "madhava@yallanki.dev" }]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "python-dotenv (>=1.0.1,<2.0.0)",
+    "livekit-api (>=0.8.2,<0.9.0)",
+    "livekit-agents (>=0.12.17,<0.13.0)",
+    "livekit-plugins-google (>=0.11.0,<0.12.0)",
+    "google-cloud-speech (>=2.31.0,<3.0.0)",
+    "setuptools (>=76.0.0,<77.0.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+disable_error_code = ["import-untyped", "import-not-found"]

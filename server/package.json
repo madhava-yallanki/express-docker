@@ -38,14 +38,19 @@
   "dependencies": {
     "@google/generative-ai": "^0.22.0",
     "@madhava-yallanki/dynamo-mapper": "^1.0.2",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "livekit-server-sdk": "^2.10.2",
     "pino": "^9.6.0",
     "ws": "^8.18.1"
   },
   "bundleDependencies": [
     "@google/generative-ai",
     "@madhava-yallanki/dynamo-mapper",
+    "dotenv",
     "express",
-    "pino"
+    "livekit-server-sdk",
+    "pino",
+    "ws"
   ]
 }
